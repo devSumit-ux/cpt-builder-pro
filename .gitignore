@@ -1,18 +1,133 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+# WordPress Plugin .gitignore Template
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
-_site/
+# -----------------------------------------------------------------------------
+# WordPress Core Files & Sensitive Data
+# These should never be in your plugin's repository.
+# -----------------------------------------------------------------------------
+wp-config.php
+.htaccess
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/
+wp-content/blogs.dir/ # Multisite uploads
+sitemap.xml
+sitemap.xml.gz
+
+# -----------------------------------------------------------------------------
+# Operating System Generated Files
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+__MACOSX
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.*~
+*~
+*.swp # Vim swap files
+
+# -----------------------------------------------------------------------------
+# IDE / Editor Specific Configuration Files
+# -----------------------------------------------------------------------------
+# PhpStorm
+.idea/
+
+# VS Code
+.vscode/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# NetBeans
+nbproject/
+
+# Atom
+.atom/
+
+# -----------------------------------------------------------------------------
+# Dependency Management
+# If you use Composer or npm, ignore the vendor/node_modules directories.
+# The dependencies should be installed during a build step or by the user.
+# -----------------------------------------------------------------------------
+# Composer
+vendor/
+composer.lock # Usually committed, but can be ignored if all devs run `composer install`
+
+# Node.js / npm / Yarn
+node_modules/
+package-lock.json # Usually committed, but can be ignored if all devs run `npm install`
+yarn.lock # Usually committed
+
+# -----------------------------------------------------------------------------
+# Build Artifacts / Distribution Files
+# Ignore the distributable .zip file of your plugin, and any build/dist folders.
+# These are generated from the source code, not part of the source itself.
+# -----------------------------------------------------------------------------
+*.zip
+build/
+dist/
+release/
+
+# -----------------------------------------------------------------------------
+# Log Files & Temporary Files
+# -----------------------------------------------------------------------------
+*.log
+logs/
+tmp/
+temp/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+phpunit.xml # If you run tests separately and don't want to commit specific config
+*.phar
+
+# -----------------------------------------------------------------------------
+# Sass / Less Cache & Compiled CSS
+# If you compile SASS/LESS to CSS, you might only commit the source .scss/.less files
+# and ignore the generated .css and .css.map files (or vice-versa depending on workflow).
+# For this plugin, we are committing the CSS directly, so this section is mostly for reference.
+# -----------------------------------------------------------------------------
 .sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+*.css.map # If you generate source maps and don't want them in the repo
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
+# -----------------------------------------------------------------------------
+# CodeSniffer / Linting Tools Cache
+# -----------------------------------------------------------------------------
+phpcs.cache
+.php_cs.cache
+.phplint-cache
+.eslintcache
 
-# Specific ignore for GitHub Pages
-# GitHub Pages will always use its own deployed version of pages-gem 
-# This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
-# counterproductive to check this file into the repository.
-# Details at https://github.com/github/pages-gem/issues/768
-Gemfile.lock
+# -----------------------------------------------------------------------------
+# WordPress Specific Test Environment Files (if you use local WP environments)
+# -----------------------------------------------------------------------------
+# Local by Flywheel
+app/sql/local.wp_options.sql
+
+# Varying Vagrant Vagrants (VVV)
+*.sql # Be careful with this, only ignore if specific to VVV temp dbs
+
+# -----------------------------------------------------------------------------
+# Miscellaneous
+# -----------------------------------------------------------------------------
+# dotenv files (for environment variables, should NOT be committed if they contain secrets)
+.env
+.env.*
+!.env.example # Often an example .env file IS committed
+
+# Coverage reports from testing
+coverage/
+*.cov
