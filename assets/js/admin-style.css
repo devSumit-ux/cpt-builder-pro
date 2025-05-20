@@ -1,0 +1,21 @@
+/* CPT Builder Pro Admin Styles */
+.form-table th {
+    width: 200px;
+    padding-right: 20px; /* Add some spacing */
+}
+.form-table p.description {
+    font-size: 0.85em;
+    color: #666;
+}
+.wp-list-table .column-slug { width: 15%; }
+.wp-list-table .column-singular-label { width: 20%; }
+.wp-list-table .column-plural-label { width: 20%; }
+.wp-list-table .column-attached-to { width: 25%; }
+.wp-list-table .column-actions { width: 20%; }
+
+/* For conditional fields */
+#cpt_rewrite_slug_container,
+#tax_rewrite_slug_container,
+#menu_icon_custom {
+    margin-top: 5px; /* Add a bit of space when shown */
+}
